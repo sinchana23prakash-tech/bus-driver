@@ -1,0 +1,74 @@
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Python / Backend
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Databases, backups, and verification artifacts
+*.sql
+*.db
+*.sqlite3
+college_bus_fuel.db
+code_backup_*
+bills_backup_*
+backup_*
+bill_images_manifest_*.json
+
+# User Uploads & Receipts (protect privacy and avoid large binaries)
+backend/uploads/bills/*
+uploads/bills/*
+!backend/uploads/bills/.gitkeep
+!uploads/bills/.gitkeep
+
+# Node / React Frontend
+node_modules/
+dist/
+dist-ssr/
+*.local
+.eslintcache
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Flutter & Dart (Mobile App)
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+driver_app/build/
+build/
+driver_app/android/.gradle/
+driver_app/android/local.properties
+driver_app/ios/Pods/
+driver_app/ios/.symlinks/
+driver_app/ios/Flutter/Flutter.framework
+driver_app/ios/Flutter/Flutter.podspec
+driver_app/macos/Flutter/ephemeral
+driver_app/windows/flutter/ephemeral
+driver_app/linux/flutter/ephemeral
+
+# IDE and OS files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
