@@ -17,7 +17,24 @@ report_bp = Blueprint('reports', __name__, url_prefix='/api/reports')
 @role_required('ADMIN', 'VC')
 def export_fuel_csv():
     """Generates and streams a CSV of fuel records."""
-    records = FuelRecord.query.order_by(FuelRecord.created_at.desc()).all()
+    start_date_str = request.args.get('start_date')
+    end_date_str = request.args.get('end_date')
+
+    query = FuelRecord.query
+    if start_date_str:
+        try:
+            s_dt = datetime.strptime(start_date_str, '%Y-%m-%d')
+            query = query.filter(FuelRecord.bill_date >= s_dt)
+        except ValueError:
+            pass
+    if end_date_str:
+        try:
+            e_dt = datetime.strptime(end_date_str, '%Y-%m-%d').replace(hour=23, minute=59, second=59)
+            query = query.filter(FuelRecord.bill_date <= e_dt)
+        except ValueError:
+            pass
+
+    records = query.order_by(FuelRecord.bill_date.desc(), FuelRecord.id.desc()).all()
 
     output = io.StringIO()
     writer = csv.writer(output)

@@ -5,8 +5,7 @@ import StatCard from '../components/StatCard';
 import { 
   Fuel, 
   IndianRupee, 
-  ArrowRight,
-  Users
+  ArrowRight
 } from 'lucide-react';
 
 const Dashboard = () => {
@@ -49,13 +48,6 @@ const Dashboard = () => {
           </p>
         </div>
         <div className="flex items-center gap-2">
-          <Link
-            to="/drivers"
-            className="flex items-center gap-1.5 px-3 py-2 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-xs font-semibold shadow-sm transition"
-          >
-            <Users className="w-4 h-4 text-slate-500" />
-            <span>Driver Bills</span>
-          </Link>
           <Link
             to="/requests"
             className="flex items-center gap-1.5 px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold shadow-sm transition"
